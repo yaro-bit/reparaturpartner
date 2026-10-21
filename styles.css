@@ -293,9 +293,19 @@ main {
 }
 
 .btn-row {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.75rem;
+   display: flex;
+   flex-wrap: wrap;
+   gap: 0.75rem;
+}
+
+.btn-row .btn {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    box-sizing: border-box;
+    white-space: nowrap;
 }
 
 /* Startbereich */
