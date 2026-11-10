@@ -26,6 +26,27 @@
   });
 })();
 
+/* Ein-/Ausblenden des Anfrage-Formulars per Button */
+(function () {
+  var d = document;
+  var toggleBtn = d.getElementById('toggle-form-btn');
+  var formContainer = d.getElementById('form-container');
+  if (!toggleBtn || !formContainer) return;
+
+  toggleBtn.addEventListener('click', function () {
+    var isHidden = formContainer.hasAttribute('hidden');
+    if (isHidden) {
+      formContainer.removeAttribute('hidden');
+      toggleBtn.textContent = 'Formular verbergen';
+      // Sanft zum Formular scrollen
+      formContainer.scrollIntoView({ behavior: 'smooth' });
+    } else {
+      formContainer.setAttribute('hidden', 'true');
+      toggleBtn.textContent = 'Reparaturanfrage starten';
+    }
+  });
+})();
+
 /* Kontaktformular: native Pflichtfeldpruefung plus Web3Forms-Versand. */
 (function () {
   var d = document;
