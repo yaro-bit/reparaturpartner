@@ -59,6 +59,105 @@
       }
     }
     </script>
+    <style>
+        /* DSGVO Cookie Banner & Maps Placeholder Styles */
+        #cookie-banner {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background: #1f2937;
+            color: #f9fafb;
+            padding: 1.25rem 1rem;
+            box-shadow: 0 -4px 12px rgba(0,0,0,0.15);
+            z-index: 9999;
+            display: none;
+            font-family: inherit;
+        }
+        #cookie-banner .cookie-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+        @media(min-width: 768px) {
+            #cookie-banner .cookie-container {
+                flex-direction: row;
+                align-items: center;
+                justify-content: space-between;
+            }
+        }
+        #cookie-banner p {
+            margin: 0;
+            font-size: 0.9375rem;
+            line-height: 1.5;
+            color: #d1d5db;
+        }
+        #cookie-banner a {
+            color: #60a5fa;
+            text-decoration: underline;
+        }
+        #cookie-banner .cookie-buttons {
+            display: flex;
+            gap: 0.75rem;
+            flex-shrink: 0;
+        }
+        #cookie-banner button {
+            padding: 0.625rem 1.25rem;
+            border-radius: 0.375rem;
+            font-weight: 600;
+            font-size: 0.875rem;
+            cursor: pointer;
+            border: none;
+            transition: background 0.2s;
+        }
+        #cookie-accept-all {
+            background: #2563eb;
+            color: #fff;
+        }
+        #cookie-accept-all:hover {
+            background: #1d4ed8;
+        }
+        #cookie-accept-essential {
+            background: #374151;
+            color: #f9fafb;
+        }
+        #cookie-accept-essential:hover {
+            background: #4b5563;
+        }
+
+        .maps-placeholder {
+            width: 100%;
+            height: 350px;
+            background: #e5e7eb;
+            border-radius: 0.5rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 1.5rem;
+            color: #374151;
+            box-sizing: border-box;
+        }
+        .maps-placeholder p {
+            margin: 0 0 1rem 0;
+            font-size: 0.9375rem;
+        }
+        .maps-placeholder button {
+            background: #2563eb;
+            color: #fff;
+            border: none;
+            padding: 0.625rem 1.25rem;
+            border-radius: 0.375rem;
+            font-weight: 600;
+            cursor: pointer;
+        }
+        .maps-placeholder button:hover {
+            background: #1d4ed8;
+        }
+    </style>
 </head>
 <body>
     <a class="skip-link" href="#inhalt">Zum Inhalt springen</a>
@@ -384,7 +483,12 @@
             <div class="container">
                 <h2 id="cta-titel">Senden Sie Ihr Gerät per Post ein oder vereinbaren Sie eine persönliche Übergabe in Linz.</h2>
                 <div style="width: 100%; max-width: 600px; margin: 1.5rem auto;">
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2662.45689!2d14.285!3d48.305!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4773979!2sWenglerstra%C3%9Fe+8%2C+4020+Linz!5e0!3m2!1sde!2sat!4v1!5m2!1sde!2sat" width="100%" height="350" style="border:0; border-radius: 0.5rem;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Standort iDad in Linz auf Google Maps"></iframe>
+                    <div id="maps-wrapper">
+                        <div class="maps-placeholder" id="maps-placeholder">
+                            <p>Aus Datenschutzgründen wird die Karte von Google Maps erst nach Ihrer Einwilligung geladen.</p>
+                            <button type="button" id="load-maps-btn">Karte laden</button>
+                        </div>
+                    </div>
                 </div>
                 <p>Details zum Ablauf besprechen wir am besten direkt per Telefon, E-Mail oder Telegram.</p>
                 <div class="btn-row">
@@ -435,5 +539,58 @@
             <p class="copyright">&copy; 2026 iDad &bull; Iaroslav Komakha &bull; Alle Rechte vorbehalten.</p>
         </div>
     </footer>
+
+    <!-- Cookie Banner Element -->
+    <div id="cookie-banner">
+        <div class="cookie-container">
+            <p>Wir verwenden Cookies und externe Dienste (wie Google Maps), um unsere Website zu optimieren und Ihnen erweiterte Funktionen zu bieten. Nähere Informationen finden Sie in unserer <a href="datenschutz.html">Datenschutzerklärung</a>.</p>
+            <div class="cookie-buttons">
+                <button type="button" id="cookie-accept-essential">Nur essenzielle</button>
+                <button type="button" id="cookie-accept-all">Alle akzeptieren</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const banner = document.getElementById("cookie-banner");
+            const btnAll = document.getElementById("cookie-accept-all");
+            const btnEssential = document.getElementById("cookie-accept-essential");
+            const mapsPlaceholder = document.getElementById("maps-placeholder");
+            const mapsWrapper = document.getElementById("maps-wrapper");
+            const loadMapsBtn = document.getElementById("load-maps-btn");
+
+            function loadGoogleMaps() {
+                if (document.getElementById("google-maps-iframe")) return;
+                mapsWrapper.innerHTML = '<iframe id="google-maps-iframe" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2662.45689!2d14.285!3d48.305!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4773979!2sWenglerstra%C3%9Fe+8%2C+4020+Linz!5e0!3m2!1sde!2sat!4v1!5m2!1sde!2sat" width="100%" height="350" style="border:0; border-radius: 0.5rem;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Standort iDad in Linz auf Google Maps"></iframe>';
+            }
+
+            const consent = localStorage.getItem("iDad_cookie_consent");
+            if (!consent) {
+                banner.style.display = "block";
+            } else if (consent === "all") {
+                loadGoogleMaps();
+            }
+
+            btnAll.addEventListener("click", function() {
+                localStorage.setItem("iDad_cookie_consent", "all");
+                banner.style.display = "none";
+                loadGoogleMaps();
+            });
+
+            btnEssential.addEventListener("click", function() {
+                localStorage.setItem("iDad_cookie_consent", "essential");
+                banner.style.display = "none";
+            });
+
+            if (loadMapsBtn) {
+                loadMapsBtn.addEventListener("click", function() {
+                    localStorage.setItem("iDad_cookie_consent", "all");
+                    banner.style.display = "none";
+                    loadGoogleMaps();
+                });
+            }
+        });
+    </script>
 </body>
 </html>
