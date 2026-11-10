@@ -1,14 +1,11 @@
+
 /* ==========================================================================
-   Iaroslav Komakha - B2B Reparaturpartner
-   Reines CSS, kein Build-Schritt, keine externen Ressourcen.
-   Schrift: Montserrat (SIL OFL 1.1), selbst gehostet im Ordner /fonts.
-   Aufbau: 1 Variablen | 2 Basis | 3 Layout | 4 Komponenten | 5 Responsive
-   Gestaltung: Farben, Schriftgrößen, Pill-Buttons und Container-Breite
-   nach der Referenzseite (Blau #00377B, Hover Rot #D61634, Hellblau #BCD3EE,
-   Fließtext #505050, Container 1100px).
+   iDad Apple Service - Iaroslav Komakha
+   Premium Apple Design – iPhone Inspired
+   Clean White / Space Black / Silver / Apple Blue
    ========================================================================== */
 
-/* Schrift: selbst gehostet, kein Abruf bei Google */
+/* Schriftarten */
 @font-face {
   font-family: "Montserrat";
   font-style: normal;
@@ -33,30 +30,45 @@
   src: url("fonts/montserrat-latin-700-normal.woff2") format("woff2");
 }
 
-/* 1 Variablen ------------------------------------------------------------ */
+/* 1. Variablen */
 :root {
-  --text: #000000;
-  --muted: #505050;
-  --border: #d0d5dc;
-  --line: #979797;
-  --surface: #f3f6fa;
-  --white: #ffffff;
-  --accent: #00377b;
-  --accent-strong: #d61634;
-  --soft: #bcd3ee;
-  --on-blue: #e2e2e2;
+  --text: #1d1d1f;
+  --muted: #6e6e73;
+  --muted-strong: #424245;
 
-  --container: 68.75rem;
-  --gutter: 1.25rem;
+  --white: #ffffff;
+  --surface: #f5f5f7;
+  --surface-strong: #e8e8ed;
+
+  --border: #e8e8ed;
+  --line: #d2d2d7;
+
+  --accent: #0071e3;
+  --accent-hover: #0077ed;
+  --accent-dark: #0066cc;
+  --accent-deep: #004f9e;
+  --accent-soft: #eaf3fc;
+  --accent-border: #c6ddf5;
+
+  --dark: #1d1d1f;
+  --dark-soft: #2d2d30;
+  --on-blue: #f5f5f7;
+
+  --shadow-xs: 0 1px 3px rgba(0, 0, 0, 0.035);
+  --shadow-sm: 0 3px 10px rgba(0, 0, 0, 0.045);
+  --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.075);
+  --shadow-lg: 0 16px 40px rgba(0, 0, 0, 0.09);
+
+  --container: 71.25rem;
+  --gutter: 1.5rem;
 
   --font-body: Montserrat, "Helvetica Neue", Helvetica, Arial, sans-serif;
   --font-head: Montserrat, "Helvetica Neue", Helvetica, Arial, sans-serif;
 
-  /* Bildausschnitt der Fotos: "cover" schneidet zu, "contain" zeigt alles */
   --img-fit: cover;
 }
 
-/* 2 Basis ---------------------------------------------------------------- */
+/* 2. Basis */
 *,
 *::before,
 *::after {
@@ -65,7 +77,7 @@
 
 html {
   -webkit-text-size-adjust: 100%;
-  scroll-padding-top: 3rem;
+  scroll-padding-top: 5rem;
 }
 
 body {
@@ -79,6 +91,7 @@ body {
   line-height: 1.6;
   color: var(--muted);
   background: var(--white);
+  -webkit-font-smoothing: antialiased;
 }
 
 h1,
@@ -94,8 +107,8 @@ h1,
 h2,
 h3 {
   font-family: var(--font-head);
-  font-weight: 500;
-  line-height: 1.2;
+  font-weight: 700;
+  line-height: 1.25;
   color: var(--text);
 }
 
@@ -112,18 +125,20 @@ img {
 
 a {
   color: var(--accent);
+  text-decoration: none;
+  transition: color 0.18s ease;
 }
 
 a:hover {
-  color: var(--accent-strong);
+  color: var(--accent-hover);
 }
 
 :focus-visible {
-  outline: 3px solid var(--accent-strong);
-  outline-offset: 2px;
+  outline: 3px solid var(--accent);
+  outline-offset: 3px;
 }
 
-/* 3 Layout --------------------------------------------------------------- */
+/* 3. Layout */
 .container {
   width: 100%;
   max-width: var(--container);
@@ -136,37 +151,41 @@ main {
 }
 
 .section {
-  padding-block: 3.5rem;
+  padding-block: 5rem;
 }
 
 .section--alt {
   background: var(--surface);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
 }
 
 .section--blue {
   position: relative;
-  padding-block: 5rem;
+  padding-block: 6rem;
   color: var(--white);
-  background: var(--accent);
+  background: var(--dark);
 }
 
 .section-head {
-  max-width: 46rem;
-  margin: 0 auto 2.5rem;
+  max-width: 48rem;
+  margin: 0 auto 3.5rem;
   text-align: center;
 }
 
+.section-head h1,
 .section-head h2 {
-  font-size: clamp(1.5rem, 1.1rem + 1.6vw, 2.1875rem);
-  line-height: 1.23;
-  color: var(--accent);
+  font-size: clamp(1.75rem, 1.2rem + 1.8vw, 2.5rem);
+  color: var(--text);
 }
 
 .section-head p {
   margin-top: 1rem;
+  font-size: 1.0625rem;
   color: var(--muted);
 }
 
+.section--blue .section-head h1,
 .section--blue .section-head h2,
 .section--blue .section-head p {
   color: var(--white);
@@ -181,26 +200,27 @@ main {
   font-weight: 700;
   color: var(--text);
   background: var(--white);
-  border: 2px solid var(--text);
+  border: 1px solid var(--text);
 }
 
 .skip-link:focus {
   top: 1rem;
 }
 
-/* 4 Komponenten ---------------------------------------------------------- */
+/* 4. Komponenten */
 
-/* Kopfbereich: Hinweisleiste + Navigation */
+/* Header und Promo */
 .site-top {
-  display: contents; /* mobil: nur die Hinweisleiste bleibt oben haften */
+  display: contents;
 }
 
 .promo {
   position: sticky;
   top: 0;
   z-index: 50;
-  background: var(--accent);
   color: var(--on-blue);
+  background: var(--dark);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 .promo .container {
@@ -209,8 +229,9 @@ main {
   align-items: center;
   justify-content: space-between;
   gap: 0.25rem 1.5rem;
-  padding-block: 0.5rem;
+  padding-block: 0.625rem;
   font-size: 0.8125rem;
+  font-weight: 500;
 }
 
 .promo a {
@@ -220,12 +241,15 @@ main {
 }
 
 .promo a:hover {
-  color: var(--soft);
+  color: #2997ff;
+  text-decoration: underline;
 }
 
 .site-header {
-  background: var(--white);
-  border-bottom: 1px solid var(--line);
+  background: rgba(255, 255, 255, 0.94);
+  -webkit-backdrop-filter: blur(16px);
+  backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--border);
 }
 
 .site-header .container {
@@ -233,8 +257,8 @@ main {
   flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
-  gap: 0.5rem 2rem;
-  padding-block: 1rem;
+  gap: 1rem 2rem;
+  padding-block: 1.25rem;
 }
 
 .brand {
@@ -244,20 +268,19 @@ main {
   text-decoration: none;
 }
 
-.brand:hover {
-  color: var(--text);
-}
-
 .brand strong {
   display: block;
   font-family: var(--font-head);
   font-size: 1.375rem;
   font-weight: 700;
+  letter-spacing: -0.035em;
 }
 
 .brand small {
   display: block;
+  margin-top: 0.15rem;
   font-size: 0.75rem;
+  letter-spacing: 0.02em;
   color: var(--muted);
 }
 
@@ -276,6 +299,7 @@ main {
 
 .header-contact .value {
   display: block;
+  margin-top: 0.1rem;
   font-size: 1rem;
   font-weight: 700;
   color: var(--accent);
@@ -283,48 +307,57 @@ main {
 }
 
 .header-contact:hover .value {
-  color: var(--accent-strong);
+  color: var(--accent-hover);
 }
 
-/* Mobiles Menü: nur aktiv, wenn script.js läuft (Klasse .js) */
+/* Navigation */
 .nav-toggle {
   display: none;
   padding: 0.5rem 1.25rem;
   font: inherit;
   font-size: 0.875rem;
-  font-weight: 500;
-  color: var(--accent);
-  background: transparent;
-  border: 2px solid var(--accent);
-  border-radius: 1.8em;
+  font-weight: 600;
+  color: var(--text);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 999px;
   cursor: pointer;
+  transition: background 0.18s ease, border-color 0.18s ease;
+}
+
+.nav-toggle:hover {
+  background: var(--surface-strong);
+  border-color: var(--line);
 }
 
 .nav-toggle[aria-expanded="true"] {
   color: var(--white);
   background: var(--accent);
+  border-color: var(--accent);
 }
 
 .site-nav ul {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.25rem 1.5rem;
+  gap: 0.25rem 2rem;
 }
 
 .site-nav a {
   display: block;
   padding-block: 0.25rem;
   font-size: 0.9375rem;
+  font-weight: 500;
   color: var(--text);
-  text-decoration: none;
   border-bottom: 2px solid transparent;
+  transition: color 0.18s ease, border-color 0.18s ease;
 }
 
 .site-nav a:hover {
   color: var(--accent);
-  border-bottom-color: var(--accent-strong);
+  border-bottom-color: var(--accent);
 }
 
+/* Mobile Navigation */
 @media (max-width: 47.99em) {
   .js .nav-toggle {
     display: inline-block;
@@ -339,6 +372,7 @@ main {
     display: none;
     order: 3;
     flex-basis: 100%;
+    padding-top: 1rem;
   }
 
   .js .site-nav.is-open {
@@ -351,75 +385,85 @@ main {
   }
 
   .js .site-nav a {
-    padding-block: 0.6rem;
+    padding-block: 0.75rem;
     border-top: 1px solid var(--border);
+    border-bottom: none;
   }
 }
 
-/* Schaltflächen (Pill-Form wie in der Referenz) */
+/* Buttons */
 .btn {
   display: inline-block;
-  padding: 0.95rem 1.5rem;
+  padding: 0.875rem 1.75rem;
   font-family: var(--font-body);
-  font-size: 0.8125rem;
-  font-weight: 500;
+  font-size: 0.875rem;
+  font-weight: 600;
   line-height: 1;
   text-align: center;
   text-decoration: none;
-  border: 2px solid transparent;
-  border-radius: 1.8em;
-  transition: background-color 0.1s ease, color 0.1s ease, border-color 0.1s ease;
+  border: 1px solid transparent;
+  border-radius: 999px;
+  transition: background-color 0.18s ease,
+              color 0.18s ease,
+              border-color 0.18s ease,
+              box-shadow 0.18s ease,
+              transform 0.18s ease;
 }
 
 .btn--primary {
   color: var(--white);
   background: var(--accent);
   border-color: var(--accent);
+  box-shadow: var(--shadow-xs);
 }
 
 .btn--primary:hover {
   color: var(--white);
-  background: var(--accent-strong);
-  border-color: var(--accent-strong);
+  background: var(--accent-hover);
+  border-color: var(--accent-hover);
+  box-shadow: var(--shadow-sm);
 }
 
 .btn--secondary {
   color: var(--accent);
-  background: transparent;
+  background: var(--white);
   border-color: var(--accent);
 }
 
 .btn--secondary:hover {
   color: var(--white);
   background: var(--accent);
+  border-color: var(--accent);
 }
 
 .btn--light {
-  color: var(--accent);
+  color: var(--text);
   background: var(--white);
   border-color: var(--white);
 }
 
 .btn--light:hover {
-  color: var(--accent);
-  background: var(--soft);
-  border-color: var(--soft);
+  color: var(--text);
+  background: var(--surface);
+  border-color: var(--surface);
 }
 
 .btn--outline-light {
   color: var(--white);
-  border-color: var(--white);
+  background: transparent;
+  border-color: rgba(255, 255, 255, 0.5);
 }
 
 .btn--outline-light:hover {
-  color: var(--accent);
+  color: var(--dark);
   background: var(--white);
+  border-color: var(--white);
 }
 
 .btn-row {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.75rem;
+  gap: 1rem;
 }
 
 .btn-row .btn {
@@ -431,15 +475,7 @@ main {
   white-space: nowrap;
 }
 
-/* Startbereich (blau, weiße Schrift) */
-.hero {
-  position: relative;
-  padding-block: 3rem 5rem;
-  color: var(--white);
-  background: var(--accent) url("img/circuit.svg") right center / cover no-repeat;
-}
-
-/* Geschwungene Trennkanten (eigene Vektorgrafik, Farbe über --wave) */
+/* Wellen */
 .wave {
   position: absolute;
   left: 0;
@@ -476,17 +512,18 @@ main {
   --wave: var(--surface);
 }
 
-/* Vektor-Icons */
+/* Icons */
 .icon {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   width: 3rem;
   height: 3rem;
-  margin-bottom: 1rem;
-  color: var(--white);
-  background: var(--accent);
-  border-radius: 50%;
+  margin-bottom: 1.25rem;
+  color: var(--accent);
+  background: var(--surface);
+  border: none;
+  border-radius: 0.875rem;
 }
 
 .icon svg {
@@ -494,171 +531,125 @@ main {
   height: 1.5rem;
   fill: none;
   stroke: currentColor;
-  stroke-width: 1.8;
+  stroke-width: 1.75;
   stroke-linecap: round;
   stroke-linejoin: round;
 }
 
-.hero .container {
-  display: grid;
-  gap: 2.5rem;
+.columns--on-blue .icon {
+  color: #2997ff;
+  background: rgba(255, 255, 255, 0.1);
+  border-color: transparent;
 }
 
-.hero h1 {
-  font-size: clamp(1.75rem, 1rem + 3.2vw, 3.625rem);
-  hyphens: auto;
-  overflow-wrap: break-word;
-  line-height: 1.15;
-  color: var(--white);
-}
-
-.hero .lead {
-  max-width: 38rem;
-  margin-block: 1.375rem 2rem;
-  font-size: 1rem;
-  line-height: 1.6;
-  color: var(--white);
-}
-
-.facts {
-    width: 100%;
-    align-self: center;
-    display: flex;
-    flex-direction: column;
-    overflow: hidden;
-    background: rgba(255, 255, 255, 0.08);
-    border: 1px solid rgba(255, 255, 255, 0.35);
-    border-radius: 1.25rem;
-}
-
-.facts caption {
-  padding: 0.75rem 1rem;
-  font-weight: 700;
-  text-align: left;
-  color: var(--accent);
-  background: var(--white);
-  border-radius: 1.25rem 1.25rem 0 0;
-}
-
-.facts th,
-.facts td {
-  padding: 0.75rem 1rem;
-  border-top: 1px solid rgba(255, 255, 255, 0.35);
-}
-
-.facts th {
-  font-size: 0.875rem;
-  font-weight: 400;
-  text-align: left;
-  color: var(--soft);
-}
-
-.facts td {
-  font-size: 1.25rem;
-  font-weight: 700;
-  text-align: right;
-  white-space: nowrap;
-  color: var(--white);
-}
-
-/* Spalten (Kooperation, Vorteile) */
+/* Karten und Raster */
 .columns {
   display: grid;
-  gap: 2rem;
+  gap: 1.5rem;
 }
 
 .columns li {
-  padding: 1.5rem;
-  background: var(--surface);
-  border-radius: 1.25rem;
+  padding: 2rem;
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 1rem;
+  box-shadow: var(--shadow-xs);
+  transition: border-color 0.2s ease,
+              box-shadow 0.2s ease,
+              transform 0.2s ease;
+}
+
+.columns li:hover {
+  border-color: var(--line);
+  box-shadow: var(--shadow-md);
+  transform: translateY(-3px);
 }
 
 .columns h3 {
-  font-size: 1.5rem;
-  line-height: 1.2;
+  font-size: 1.25rem;
+  letter-spacing: -0.025em;
 }
 
 .columns p {
-  margin-top: 0.5rem;
-  font-size: 1rem;
-  line-height: 1.55;
+  margin-top: 0.625rem;
+  font-size: 0.9375rem;
+  line-height: 1.6;
   color: var(--muted);
 }
 
 .columns .more {
   display: inline-block;
-  margin-top: 0.75rem;
-  font-size: 0.9375rem;
+  margin-top: 1.25rem;
+  font-size: 0.875rem;
   font-weight: 700;
+  color: var(--accent);
 }
 
-/* Vorteile auf blauem Grund */
+/* Karten auf dunklem Hintergrund */
 .columns--on-blue li {
-  background: rgba(255, 255, 255, 0.08);
-  border: 1px solid rgba(255, 255, 255, 0.22);
+  background: var(--dark-soft);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: none;
 }
 
-.columns--on-blue .icon {
-  background: rgba(255, 255, 255, 0.16);
+.columns--on-blue li:hover {
+  border-color: rgba(255, 255, 255, 0.25);
+  box-shadow: var(--shadow-md);
 }
 
 .columns--on-blue h3 {
-  font-size: 1.375rem;
   color: var(--white);
 }
 
 .columns--on-blue p {
-  font-size: 0.875rem;
-  line-height: 1.45;
-  color: var(--white);
+  color: #a1a1a6;
 }
 
-/* Leistungen: Bild/Text im Wechsel */
+/* Leistungsübersicht */
 .feature-list {
   display: grid;
-  gap: 3rem;
+  gap: 4rem;
 }
 
 .feature {
   display: grid;
-  gap: 1.25rem;
+  gap: 2.5rem;
   align-items: center;
 }
 
 .feature h3 {
   font-size: 1.5rem;
-  line-height: 1.2;
+  letter-spacing: -0.025em;
 }
 
 .feature p {
-  margin-top: 0.75rem;
+  margin-top: 0.875rem;
   font-size: 1rem;
-  line-height: 1.55;
+  line-height: 1.6;
   color: var(--muted);
 }
 
 .feature img {
   width: 100%;
   height: auto;
-  aspect-ratio: 4 / 3;
+  aspect-ratio: 16 / 10;
   object-fit: var(--img-fit);
   object-position: center;
   background: var(--surface);
-  border-radius: 1.5rem;
-  box-shadow: 0.75rem 0.75rem 0 var(--soft), 0 12px 32px rgba(0, 55, 123, 0.18);
+  border-radius: 1rem;
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow-sm);
 }
 
-.feature:nth-child(even) img {
-  box-shadow: -0.75rem 0.75rem 0 var(--soft), 0 12px 32px rgba(0, 55, 123, 0.18);
-}
-
-/* Weitere Leistungen: Liste mit Trennlinien */
 .subhead {
-  margin-block: 3.5rem 1.25rem;
-  font-size: 1.5rem;
+  margin-block: 4rem 1.5rem;
+  font-size: 1.375rem;
+  font-weight: 700;
   color: var(--text);
+  letter-spacing: -0.025em;
 }
 
+/* Service-Liste */
 .service-list {
   display: grid;
   gap: 0 3rem;
@@ -666,13 +657,14 @@ main {
 }
 
 .service-list li {
-  padding-block: 1rem;
+  padding-block: 1.25rem;
   border-bottom: 1px solid var(--border);
 }
 
 .service-list h3 {
   font-size: 1rem;
   font-weight: 700;
+  color: var(--text);
 }
 
 .service-list p {
@@ -681,12 +673,14 @@ main {
   color: var(--muted);
 }
 
-/* Über mich */
+/* Über uns */
 .about-text {
   display: grid;
-  gap: 1rem;
-  max-width: 46rem;
+  gap: 1.25rem;
+  max-width: 48rem;
   margin-inline: auto;
+  font-size: 1.0625rem;
+  line-height: 1.7;
   color: var(--muted);
 }
 
@@ -694,39 +688,45 @@ main {
   color: var(--text);
 }
 
-/* Kontakt */
+/* Kontaktkarten */
 .contact-grid {
   display: grid;
-  gap: 1rem;
+  gap: 1.25rem;
 }
 
 .contact-card {
   display: block;
   height: 100%;
-  padding: 1.25rem 1.5rem;
+  padding: 1.75rem;
   color: var(--text);
   text-decoration: none;
   background: var(--white);
   border: 1px solid var(--border);
-  border-top: 3px solid var(--accent);
-  border-radius: 1.25rem;
+  border-radius: 1rem;
+  box-shadow: var(--shadow-xs);
+  transition: border-color 0.2s ease,
+              box-shadow 0.2s ease,
+              transform 0.2s ease;
 }
 
 .contact-card:hover {
-  color: var(--text);
-  background: var(--surface);
-  border-top-color: var(--accent-strong);
+  border-color: var(--accent-border);
+  box-shadow: var(--shadow-md);
+  transform: translateY(-2px);
 }
 
 .contact-card .label {
   display: block;
-  font-size: 0.8125rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
   color: var(--muted);
 }
 
 .contact-card .value {
   display: block;
-  margin-top: 0.25rem;
+  margin-top: 0.5rem;
   font-size: 1.125rem;
   font-weight: 700;
   color: var(--accent);
@@ -735,64 +735,68 @@ main {
 
 .contact-card .hint {
   display: block;
-  margin-top: 0.25rem;
-  font-size: 0.875rem;
+  margin-top: 0.35rem;
+  font-size: 0.8125rem;
   color: var(--muted);
 }
 
 .contact-note {
-  margin-top: 1.5rem;
+  margin-top: 2rem;
   font-size: 0.875rem;
   text-align: center;
   color: var(--muted);
 }
 
-/* Abschluss-Aufruf */
+/* Call to Action */
 .cta {
-  padding-block: 3.5rem;
+  padding-block: 5rem;
   color: var(--white);
-  background: var(--accent);
+  background: var(--dark);
+  text-align: center;
 }
 
 .cta .container {
-  max-width: 52rem;
+  max-width: 50rem;
 }
 
 .cta h2 {
-  font-size: clamp(1.4rem, 1.1rem + 1.2vw, 1.875rem);
+  font-size: clamp(1.5rem, 1.2rem + 1.2vw, 2.125rem);
   color: var(--white);
 }
 
 .cta p {
-  margin-top: 0.75rem;
-  font-size: 0.9375rem;
-  color: var(--on-blue);
+  margin-top: 1rem;
+  font-size: 1.0625rem;
+  color: #a1a1a6;
 }
 
 .cta .btn-row {
-  margin-top: 1.75rem;
+  margin-top: 2rem;
+  justify-content: center;
 }
 
-/* Fußbereich (hell, wie in der Referenz) */
+/* Footer */
 .site-footer {
   color: var(--text);
-  background: var(--white);
-  border-top: 1px solid var(--line);
+  background: var(--surface);
+  border-top: 1px solid var(--border);
 }
 
 .site-footer .container {
-  padding-block: 3rem 1.5rem;
+  padding-block: 4rem 2rem;
 }
 
 .footer-grid {
   display: grid;
-  gap: 2rem;
+  gap: 2.5rem;
 }
 
 .site-footer h2 {
-  margin-bottom: 0.75rem;
-  font-size: 0.875rem;
+  margin-bottom: 1rem;
+  font-size: 0.8125rem;
   font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
   color: var(--muted);
 }
 
@@ -800,12 +804,13 @@ main {
   margin-bottom: 0.75rem;
   font-size: 1.25rem;
   font-weight: 700;
+  color: var(--text);
 }
 
 .site-footer p,
 .site-footer li {
   font-size: 0.9375rem;
-  color: var(--text);
+  color: var(--muted);
 }
 
 .site-footer ul {
@@ -814,45 +819,47 @@ main {
 }
 
 .site-footer a {
-  color: var(--text);
+  color: var(--muted);
 }
 
 .site-footer a:hover {
-  color: var(--accent-strong);
+  color: var(--accent);
 }
 
 .copyright {
-  margin-top: 2.5rem;
-  padding-top: 1.25rem;
+  margin-top: 3rem;
+  padding-top: 1.5rem;
   font-size: 0.8125rem;
   color: var(--muted);
   border-top: 1px solid var(--border);
 }
 
-/* Rechtstexte (Impressum, Datenschutz) */
+/* Rechtstexte */
 .legal {
-  max-width: 46rem;
+  max-width: 48rem;
   margin-inline: auto;
-  padding: 3rem var(--gutter) 4rem;
+  padding: 4rem var(--gutter) 5rem;
 }
 
 .legal h1 {
-  margin-bottom: 1.5rem;
-  padding-bottom: 0.6rem;
-  font-size: 2rem;
-  color: var(--accent);
-  border-bottom: 3px solid var(--accent);
+  margin-bottom: 1.75rem;
+  padding-bottom: 0.75rem;
+  font-size: 2.125rem;
+  color: var(--text);
+  border-bottom: 2px solid var(--border);
 }
 
 .legal h2 {
-  margin-block: 2rem 0.5rem;
+  margin-block: 2.5rem 0.75rem;
   font-size: 1.25rem;
+  color: var(--text);
 }
 
 .legal p,
 .legal address {
-  margin-bottom: 1rem;
+  margin-bottom: 1.25rem;
   font-style: normal;
+  line-height: 1.7;
   color: var(--muted);
 }
 
@@ -863,11 +870,11 @@ main {
 .legal .back {
   display: flex;
   gap: 1.5rem;
-  margin-top: 2.5rem;
+  margin-top: 3rem;
   font-size: 0.9375rem;
 }
 
-/* 5 Responsive ----------------------------------------------------------- */
+/* 5. Responsive Breakpoints */
 @media (min-width: 40em) {
   .contact-grid {
     grid-template-columns: repeat(3, 1fr);
@@ -876,7 +883,7 @@ main {
 
 @media (min-width: 48em) {
   html {
-    scroll-padding-top: 9rem;
+    scroll-padding-top: 6rem;
   }
 
   .site-top {
@@ -891,7 +898,7 @@ main {
   }
 
   .section {
-    padding-block: 4.5rem;
+    padding-block: 6rem;
   }
 
   .columns--3 {
@@ -904,7 +911,7 @@ main {
 
   .feature {
     grid-template-columns: 1fr 1fr;
-    gap: 3rem;
+    gap: 4rem;
   }
 
   .feature:nth-child(even) img {
@@ -921,22 +928,19 @@ main {
 }
 
 @media (min-width: 64em) {
-  .hero {
-    padding-block: 4rem 4.5rem;
-  }
-
-  .hero .container {
-    grid-template-columns: 1.4fr 1fr;
-    gap: 4rem;
-  }
-
   .columns--2-3 {
     grid-template-columns: repeat(3, 1fr);
   }
 }
 
+/* Barrierefreiheit */
 @media (prefers-reduced-motion: reduce) {
-  .btn {
-    transition: none;
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
   }
 }

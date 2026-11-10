@@ -3,8 +3,13 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Iaroslav Komakha – Reparaturservice Linz &amp; B2B Microsoldering</title>
-    <meta name="description" content="Iaroslav Komakha – B2B-Reparaturservice in Linz für Handyshops, Werkstätten und Elektronikfachhändler. Komplexe Apple- und Mainboard-Reparaturen, BGA-Rework, Microsoldering und Datenrettung.">
+    <title>Iaroslav Komakha | B2B-Reparaturservice in Linz</title>
+    <meta name="description" content="Iaroslav Komakha: B2B-Reparaturservice in Linz für Handyshops, Werkstätten und Elektronikhändler. Mainboard-Reparaturen, BGA-Rework, Reballing, Microsoldering, IC-Tausch und Datenrettung.">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Iaroslav Komakha | B2B-Reparaturservice in Linz">
+    <meta property="og:description" content="Komplexe Mainboard-Reparaturen, BGA-Rework, Microsoldering und Datenrettung für Handyshops und Werkstätten.">
+    <meta property="og:url" content="https://reparaturpartner-linz.vercel.app/">
+    <meta name="twitter:card" content="summary">
     <meta name="robots" content="index, follow">
     <meta name="author" content="Iaroslav Komakha">
     <meta name="theme-color" content="#00377b">
@@ -18,11 +23,12 @@
       "@context": "https://schema.org",
       "@type": "LocalBusiness",
       "name": "Iaroslav Komakha - B2B Reparaturservice",
-      "url": "https://reparaturpartner-linz.vercel.app",
+      "url": "https://reparaturpartner-linz.vercel.app/",
       "telephone": "+43 670 657 7783",
       "email": "komaxaonly@gmail.com",
       "address": {
         "@type": "PostalAddress",
+        "streetAddress": "Wenglerstraße 8/EG 72",
         "postalCode": "4020",
         "addressLocality": "Linz",
         "addressCountry": "AT"
@@ -30,7 +36,7 @@
       "areaServed": "Österreich",
       "sameAs": [
         "https://firmen.wko.at/iaroslav-komakha/ober%C3%B6sterreich/?firmaid=014bb881-d39e-4198-9e74-b0991da9c404",
-        "https://www.firmenabc.at/firmen/linz-stadt_Hl/elektriker_Bye/4"
+        "https://www.firmenabc.at/iaroslav-komakha_HAVQi"
       ],
       "hasOfferCatalog": {
         "@type": "OfferCatalog",
@@ -104,8 +110,8 @@
         <section id="kooperation" class="section" aria-labelledby="kooperation-titel">
             <div class="container">
                 <div class="section-head">
-                    <h2 id="kooperation-titel">Kooperation für Servicebetriebe und Händler</h2>
-                    <p>Die Zusammenarbeit ist sowohl per Versand als auch nach persönlicher Vereinbarung möglich.</p>
+                    <h1 id="kooperation-titel">B2B-Reparaturservice in Linz für Handyshops und Werkstätten</h1>
+                    <p>Spezialisierte Mainboard-Reparaturen, BGA-Rework und Microsoldering für Servicebetriebe und Elektronikhändler. Die Zusammenarbeit ist per Versand oder nach persönlicher Vereinbarung möglich.</p>
                 </div>
                 <ul class="columns columns--3">
                     <li>
@@ -267,7 +273,7 @@
                     <h2 id="ueber-mich-titel">Über mich: Qualität, schnelle Bearbeitung, 15 Jahre Erfahrung</h2>
                 </div>
                 <div class="about-text">
-                    <p>Mein Name ist Iaroslav, qualifizierter Servicetechniker mit 15 Jahren Berufserfahrung in der Instandsetzung von Apple-Systemen. Nach zehnjähriger Praxiserfahrung in der Ukraine und fünfjähriger Tätigkeit in Polen bin ich seit Ende 2026 in Österreich ansässig und habe hier mein Gewerbe angemeldet. Die Reparatur elektronischer Komponenten ist meine fachliche Kernkompetenz.</p>
+                    <p>Mein Name ist Iaroslav Komakha. Ich bin qualifizierter Servicetechniker mit 15 Jahren Berufserfahrung in der Instandsetzung von Apple-Systemen. Nach zehnjähriger Praxiserfahrung in der Ukraine und fünfjähriger Tätigkeit in Polen bin ich in Österreich ansässig und habe hier mein Gewerbe angemeldet. Die Reparatur elektronischer Komponenten ist meine fachliche Kernkompetenz.</p>
                     <p>Mein Spezialgebiet sind komplexe Motherboard-Reparaturen und Datenrettung, aber auch bei Displayschäden oder beim Akkutausch stehe ich Ihnen gerne zur Seite. Ich verwende ausschließlich Original-Ersatzteile und modernstes Werkzeug. Ihre Zufriedenheit ist mir sehr wichtig!</p>
                     <p>Dank meines eigenen Ersatzteillagers erledige ich <strong>9/10</strong> aller Reparaturen direkt am selben Tag. Sie können Geräte nach Vereinbarung persönlich übergeben oder bequem per Kurier schicken. Hinterlassen Sie mir auch gerne Ihre Anfragen und Wünsche!</p>
                 </div>
@@ -282,27 +288,25 @@
                     <p>Wir führen eine präzise Diagnose und eine kostenlose Beratung durch. Hinterlassen Sie Ihre Kontaktdaten und wir werden uns definitiv bei Ihnen melden.</p>
                 </div>
 
-                <div class="form-error-banner" role="alert" aria-live="polite" style="display: none; background: #ffebee; color: #d61634; padding: 1rem; border-radius: 0.5rem; margin-bottom: 1.5rem; font-size: 0.9375rem;">
-                    Ein oder mehrere Felder enthalten fehlerhafte Daten. Bitte überprüfen Sie diese und versuchen Sie es erneut.
-                </div>
+                <div id="form-status" role="status" aria-live="polite" tabindex="-1" hidden style="padding: 1rem; border-radius: 0.5rem; margin-bottom: 1.5rem; font-size: 0.9375rem;"></div>
 
-                <form id="form" class="repair-contact-form" action="https://api.web3forms.com/submit" method="POST" novalidate style="display: grid; gap: 1.25rem;">
+                <form id="form" class="repair-contact-form" action="https://api.web3forms.com/submit" method="POST" style="display: grid; gap: 1.25rem;">
                     <!-- Web3Forms Access Key -->
                     <input type="hidden" name="access_key" value="029de4c1-ca1f-46d5-9054-4d6a770d00f3">
+                    <input type="hidden" name="subject" value="B2B-Reparaturanfrage über die Website">
                     
                     <!-- Spam-Schutz (Honeypot) -->
                     <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
                     
                     <div class="form-group" style="display: grid; gap: 0.375rem;">
                         <label for="user-name" style="font-weight: 700; font-size: 0.9375rem;">Name <span style="color: #d61634;">*</span></label>
-                        <input type="text" id="user-name" name="name" required aria-describedby="name-error" style="padding: 0.75rem 1rem; border: 1px solid #d0d5dc; border-radius: 0.5rem; font: inherit;">
-                        <span id="name-error" class="error-message" style="font-size: 0.8125rem; color: #d61634; display: none;">Dieses Feld ist ein Pflichtfeld.</span>
+                        <input type="text" id="user-name" name="name" required minlength="2" maxlength="100" autocomplete="name" style="padding: 0.75rem 1rem; border: 1px solid #d0d5dc; border-radius: 0.5rem; font: inherit;">
                     </div>
 
                     <div class="form-group" style="display: grid; gap: 0.375rem;">
                         <label for="user-phone" style="font-weight: 700; font-size: 0.9375rem;">Telefon <span style="color: #d61634;">*</span></label>
-                        <input type="tel" id="user-phone" name="phone" required aria-describedby="phone-error" placeholder="+43 ..." style="padding: 0.75rem 1rem; border: 1px solid #d0d5dc; border-radius: 0.5rem; font: inherit;">
-                        <span id="phone-error" class="error-message" style="font-size: 0.8125rem; color: #d61634; display: none;">Dieses Feld ist ein Pflichtfeld.</span>
+                        <input type="tel" id="user-phone" name="phone" required minlength="7" maxlength="25" pattern="[0-9+() /.-]{7,25}" autocomplete="tel" inputmode="tel" aria-describedby="phone-help" placeholder="+43 ..." title="Bitte geben Sie eine gültige Telefonnummer ein." style="padding: 0.75rem 1rem; border: 1px solid #d0d5dc; border-radius: 0.5rem; font: inherit;">
+                        <span id="phone-help" style="font-size: 0.8125rem; color: #6e6e73;">Bitte geben Sie eine Telefonnummer mit mindestens 7 Zeichen ein.</span>
                     </div>
 
                     <div class="form-group" style="display: grid; gap: 0.375rem;">
@@ -312,6 +316,7 @@
 
                     <button type="submit" class="btn btn--primary" style="justify-self: start; cursor: pointer;">Kontaktieren Sie mich</button>
                 </form>
+                <p style="margin-top: 1rem; font-size: 0.8125rem; color: #6e6e73;">Ihre Angaben werden zur Bearbeitung der Anfrage über Web3Forms übertragen. Einzelheiten finden Sie in der <a href="datenschutz.html">Datenschutzerklärung</a>.</p>
             </div>
         </section>
 
@@ -331,7 +336,7 @@
                         </a>
                     </li>
                     <li>
-                        <a class="contact-card" href="mailto:komaxaonly@gmail.com?subject=B2B-Reparatur%20Anfrage&amp;body=Firma%3A%0AGer%C3%A4t%20und%20Modell%3A%0AFehlerbild%3A%0ASt%C3%BCckzahl%3A%0AVersand%20oder%20pers%C3%B6nliche%20%C3%9Cbergabe%3A%0ATelefonnummer%20f%C3%BCr%20R%C3%rückruf%3A">
+                        <a class="contact-card" href="mailto:komaxaonly@gmail.com?subject=B2B-Reparatur%20Anfrage&amp;body=Firma%3A%0AGer%C3%A4t%20und%20Modell%3A%0AFehlerbild%3A%0ASt%C3%BCckzahl%3A%0AVersand%20oder%20pers%C3%B6nliche%20%C3%9Cbergabe%3A%0ATelefonnummer%20f%C3%BCr%20R%C3%BCckruf%3A">
                             <span class="label">E-Mail</span>
                             <span class="value">komaxaonly@gmail.com</span>
                             <span class="hint">Anfrage mit Gerät und Fehlerbild senden</span>
