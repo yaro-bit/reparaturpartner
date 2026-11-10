@@ -7,9 +7,12 @@
     <meta name="description" content="Iaroslav Komakha – B2B-Reparaturservice in Linz für Handyshops, Werkstätten und Elektronikfachhändler. Komplexe Apple- und Mainboard-Reparaturen, BGA-Rework, Microsoldering und Datenrettung.">
     <meta name="robots" content="index, follow">
     <meta name="author" content="Iaroslav Komakha">
-    <meta name="theme-color" content="#262626">
+    <meta name="theme-color" content="#00377b">
     <link rel="canonical" href="https://reparaturpartner-linz.vercel.app/">
+    <link rel="preload" href="fonts/montserrat-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="fonts/montserrat-latin-700-normal.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -48,11 +51,27 @@
 <body>
     <a class="skip-link" href="#inhalt">Zum Inhalt springen</a>
 
+    <!-- Eigene Vektor-Icons (Inline-SVG, keine externen Dateien) -->
+    <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+        <defs>
+            <symbol id="i-check" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M8 12.5l2.7 2.7L16 9.5"/></symbol>
+            <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></symbol>
+            <symbol id="i-medal" viewBox="0 0 24 24"><circle cx="12" cy="9" r="5"/><path d="M9 13.5L7.5 21l4.5-2.5 4.5 2.5-1.5-7.5"/></symbol>
+            <symbol id="i-chip" viewBox="0 0 24 24"><rect x="7" y="7" width="10" height="10" rx="2"/><path d="M9 3v4M15 3v4M9 17v4M15 17v4M3 9h4M3 15h4M17 9h4M17 15h4"/></symbol>
+            <symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 3l7 3v5c0 4.5-3 8.2-7 10-4-1.8-7-5.5-7-10V6z"/><path d="M9 12l2 2 4-4"/></symbol>
+            <symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="6"/><path d="M16 16l4.5 4.5"/></symbol>
+            <symbol id="i-wrench" viewBox="0 0 24 24"><path d="M14.5 6.5a4 4 0 0 0-5 5L4 17l3 3 5.5-5.5a4 4 0 0 0 5-5l-2.5 2.5-2.5-.5-.5-2.5z"/></symbol>
+            <symbol id="i-lock" viewBox="0 0 24 24"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></symbol>
+            <symbol id="i-sliders" viewBox="0 0 24 24"><path d="M4 7h10M18 7h2M4 17h2M10 17h10"/><circle cx="16" cy="7" r="2"/><circle cx="8" cy="17" r="2"/></symbol>
+            <symbol id="i-bolt" viewBox="0 0 24 24"><path d="M13 3L5 13h6l-1 8 8-10h-6z"/></symbol>
+            <symbol id="i-box" viewBox="0 0 24 24"><path d="M3 8l9-5 9 5v9l-9 5-9-5z"/><path d="M3 8l9 5 9-5M12 13v9"/></symbol>
+        </defs>
+    </svg>
+
     <div class="site-top">
         <p class="promo">
             <span class="container">
                 <span>Spezial-Tarife und Express-Service für Handyshops und Werkstätten</span>
-                <a href="tel:+436706577783">Tel. +43&nbsp;670&nbsp;657&nbsp;7783</a>
             </span>
         </p>
 
@@ -62,15 +81,20 @@
                     <strong>Iaroslav Komakha</strong>
                     <small>B2B-Reparaturpartner für Handyshops</small>
                 </a>
-                <nav class="site-nav" aria-label="Hauptnavigation">
+                <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">Menü</button>
+                <nav class="site-nav" id="site-nav" aria-label="Hauptnavigation">
                     <ul>
                         <li><a href="#kooperation">Kooperation</a></li>
                         <li><a href="#leistungen">Leistungen</a></li>
-                        <li><a href="#ueber-mich">Über mich</a></li>
                         <li><a href="#ausruestung">Ausrüstung</a></li>
+                        <li><a href="#ueber-mich">Über mich</a></li>
                         <li><a href="#kontakt">Kontakt</a></li>
                     </ul>
                 </nav>
+                <a class="header-contact" href="tel:+436706577783">
+                    <span class="label">Direkt anrufen</span>
+                    <span class="value">+43&nbsp;670&nbsp;657&nbsp;7783</span>
+                </a>
             </div>
         </header>
     </div>
@@ -83,8 +107,8 @@
                     <h1 id="hero-titel">B2B-Reparaturpartner für Handyshops, Werkstätten und Elektronikfachhändler</h1>
                     <p class="lead">Ich übernehme Reparaturen, die im normalen Werkstattalltag zu aufwendig, technisch anspruchsvoll oder zeitintensiv sind. Sie behalten Ihren Kunden &ndash; ich übernehme die technische Arbeit im Hintergrund.</p>
                     <div class="btn-row">
-                        <a class="btn btn--primary" href="tel:+436706577783">Anrufen</a>
-                        <a class="btn btn--secondary" href="#kontakt">Alle Kontaktwege</a>
+                        <a class="btn btn--light" href="tel:+436706577783">Anrufen</a>
+                        <a class="btn btn--outline-light" href="#kontakt">Alle Kontaktwege</a>
                     </div>
                 </div>
 
@@ -98,9 +122,12 @@
                     </tbody>
                 </table>
             </div>
+            <div class="wave wave--bottom wave--white" aria-hidden="true">
+                <svg viewBox="0 0 1440 48" preserveAspectRatio="none"><path d="M0 48V22C240 2 480 0 720 14s480 26 720 4v30z"/></svg>
+            </div>
         </section>
 
-        <section id="kooperation" class="section section--alt" aria-labelledby="kooperation-titel">
+        <section id="kooperation" class="section" aria-labelledby="kooperation-titel">
             <div class="container">
                 <div class="section-head">
                     <h2 id="kooperation-titel">Kooperation für Servicebetriebe und Händler</h2>
@@ -108,15 +135,18 @@
                 </div>
                 <ul class="columns columns--3">
                     <li>
+                        <span class="icon" aria-hidden="true"><svg><use href="#i-bolt"/></svg></span>
                         <h3>Spezial-Tarife und Express-Service</h3>
                         <p>Flexible B2B-Konditionen: Preise und Abläufe werden abhängig von Art und Volumen der Aufträge individuell vereinbart.</p>
                         <a class="more" href="#kontakt">Konditionen anfragen</a>
                     </li>
                     <li>
+                        <span class="icon" aria-hidden="true"><svg><use href="#i-chip"/></svg></span>
                         <h3>Technik im Hintergrund</h3>
                         <p>Sie behalten Ihren Kunden, ich übernehme die technische Arbeit im Hintergrund. Aufgaben, die Ihre Kapazitäten sprengen, geben Sie einfach ab.</p>
                     </li>
                     <li>
+                        <span class="icon" aria-hidden="true"><svg><use href="#i-box"/></svg></span>
                         <h3>Versand oder persönliche Übergabe</h3>
                         <p>Senden Sie Geräte per Post oder Kurier (48h-Post-Einsende-Service) oder vereinbaren Sie eine persönliche Übergabe in Linz. Die Versandadresse nenne ich Ihnen auf Anfrage.</p>
                     </li>
@@ -124,21 +154,39 @@
             </div>
         </section>
 
-        <section id="leistungen" class="section" aria-labelledby="leistungen-titel">
+        <section id="leistungen" class="section section--alt" aria-labelledby="leistungen-titel">
             <div class="container">
                 <div class="section-head">
                     <h2 id="leistungen-titel">B2B-Reparaturleistungen in Linz</h2>
                     <p>Technischer Service für Handyshops, Werkstätten und Händler. Reparatur und Instandsetzung von Smartphones, Tablets und Notebooks.</p>
                 </div>
+
+                <div class="feature-list">
+                    <article class="feature">
+                        <img src="img/4.webp" width="800" height="600" loading="lazy" decoding="async" alt="BGA-Chips mit Lötkugeln auf einer Reballing-Matte">
+                        <div>
+                            <h3>BGA-Rework &amp; Reballing</h3>
+                            <p>Austausch und Neuaufbau von BGA-Bauteilen mit professioneller Rework-Technik.</p>
+                        </div>
+                    </article>
+                    <article class="feature">
+                        <img src="img/2.webp" width="800" height="600" loading="lazy" decoding="async" alt="Ausgelöteter BGA-Chip über dem Lötbereich einer Apple-Platine">
+                        <div>
+                            <h3>Komplexe Mainboard-Reparatur</h3>
+                            <p>Instandsetzung von Hauptplatinen, inklusive Ladebuchsen- und Platinen-Reparatur.</p>
+                        </div>
+                    </article>
+                    <article class="feature">
+                        <img src="img/3.webp" width="800" height="600" loading="lazy" decoding="async" alt="Mikrochip mit Lötkontakten in der Pinzette über einer Platine">
+                        <div>
+                            <h3>IC-Austausch &amp; Chip-Swap</h3>
+                            <p>Komplexer Mikrochip-Tausch und Instandsetzung von Apple-Geräten und Spezialhardware.</p>
+                        </div>
+                    </article>
+                </div>
+
+                <h3 class="subhead">Weitere Leistungen</h3>
                 <ul class="service-list">
-                    <li>
-                        <h3>Komplexe Mainboard-Reparatur</h3>
-                        <p>Instandsetzung von Hauptplatinen, inklusive Ladebuchsen- und Platinen-Reparatur.</p>
-                    </li>
-                    <li>
-                        <h3>BGA-Rework &amp; Reballing</h3>
-                        <p>Austausch und Neuaufbau von BGA-Bauteilen mit professioneller Rework-Technik.</p>
-                    </li>
                     <li>
                         <h3>SMD- / Microsoldering</h3>
                         <p>Präzise Lötarbeiten auf Bauteilebene unter dem Mikroskop.</p>
@@ -156,14 +204,86 @@
                         <p>Rettung wichtiger Daten von beschädigten Geräten und Hauptplatinen, inklusive Software-Wiederherstellung.</p>
                     </li>
                     <li>
-                        <h3>IC-Austausch &amp; Chip-Swap</h3>
-                        <p>Komplexer Mikrochip-Tausch und Instandsetzung von Apple-Geräten und Spezialhardware.</p>
-                    </li>
-                    <li>
                         <h3>Wasserschaden &amp; Akku-Tausch</h3>
                         <p>Wasserschaden-Behandlung sowie Akku-Tausch mit Akkustatus-Prüfung.</p>
                     </li>
                 </ul>
+            </div>
+        </section>
+
+        <section id="vorteile" class="section section--blue" aria-labelledby="vorteile-titel">
+            <div class="wave wave--top wave--surface" aria-hidden="true">
+                <svg viewBox="0 0 1440 48" preserveAspectRatio="none"><path d="M0 48V22C240 2 480 0 720 14s480 26 720 4v30z"/></svg>
+            </div>
+            <div class="container">
+                <div class="section-head">
+                    <h2 id="vorteile-titel">Warum eine Zusammenarbeit mit mir?</h2>
+                </div>
+                <ul class="columns columns--on-blue columns--2-3">
+                    <li>
+                        <span class="icon" aria-hidden="true"><svg><use href="#i-check"/></svg></span>
+                        <h3>Qualität</h3>
+                        <p>Saubere, professionelle Ausführung und sorgfältige Diagnose.</p>
+                    </li>
+                    <li>
+                        <span class="icon" aria-hidden="true"><svg><use href="#i-clock"/></svg></span>
+                        <h3>Schnelle Bearbeitung</h3>
+                        <p>Kurze und verlässliche Reparaturzeiten für Ihre Kunden.</p>
+                    </li>
+                    <li>
+                        <span class="icon" aria-hidden="true"><svg><use href="#i-medal"/></svg></span>
+                        <h3>Erfahrung</h3>
+                        <p>15 Jahre tägliche Praxis mit komplexen Fehlerbildern und Mikroelektronik, davon 9 Jahre in der Ukraine und anschließend in Polen.</p>
+                    </li>
+                    <li>
+                        <span class="icon" aria-hidden="true"><svg><use href="#i-chip"/></svg></span>
+                        <h3>Eigene Ausstattung</h3>
+                        <p>Keine Weitergabe an Dritte bei den meisten Arbeiten. Ich erledige alle typische anspruchsvolle Reparaturaufgaben selbst.</p>
+                    </li>
+                    <li>
+                        <span class="icon" aria-hidden="true"><svg><use href="#i-search"/></svg></span>
+                        <h3>Genaue Diagnose</h3>
+                        <p>Professionelle Diagnosetechnik grenzt den Fehler auf Bauteilebene ein. Erst die saubere Fehlersuche, dann die Reparatur: Das spart Zeit und Kosten.</p>
+                    </li>
+                    <li>
+                        <span class="icon" aria-hidden="true"><svg><use href="#i-wrench"/></svg></span>
+                        <h3>Original-Ersatzteile</h3>
+                        <p>Ich verwende ausschließlich Original-Ersatzteile und modernes Werkzeug, damit Geräte in einwandfreiem Zustand an Ihre Kunden zurückgehen.</p>
+                    </li>
+                    <li>
+                        <span class="icon" aria-hidden="true"><svg><use href="#i-shield"/></svg></span>
+                        <h3>Garantie</h3>
+                        <p>12 Monate Garantie auf alle ausgeführten Reparaturarbeiten.</p>
+                    </li>
+                    <li>
+                        <span class="icon" aria-hidden="true"><svg><use href="#i-lock"/></svg></span>
+                        <h3>Vertraulichkeit</h3>
+                        <p>Auf gespeicherte Inhalte eines Geräts greife ich nur zu, soweit die Reparatur oder eine beauftragte Datenrettung es erfordert. Die Verarbeitung erfolgt nach DSGVO.</p>
+                    </li>
+                    <li>
+                        <span class="icon" aria-hidden="true"><svg><use href="#i-sliders"/></svg></span>
+                        <h3>Flexible B2B-Konditionen</h3>
+                        <p>Preise und Abläufe werden abhängig von Art und Volumen der Aufträge individuell vereinbart.</p>
+                    </li>
+                </ul>
+            </div>
+            <div class="wave wave--bottom wave--white" aria-hidden="true">
+                <svg viewBox="0 0 1440 48" preserveAspectRatio="none"><path d="M0 48V22C240 2 480 0 720 14s480 26 720 4v30z"/></svg>
+            </div>
+        </section>
+
+        <section id="ausruestung" class="section" aria-labelledby="ausruestung-titel">
+            <div class="container">
+                <div class="section-head">
+                    <h2 id="ausruestung-titel">Ausrüstung: Reparatur auf Bauteilebene</h2>
+                </div>
+                <article class="feature">
+                    <img src="img/1.webp" width="800" height="600" loading="lazy" decoding="async" alt="Werkbank mit Stereomikroskop, Lötstation und Multimeter">
+                    <div>
+                        <h3>Eigene Werkstatt</h3>
+                        <p>Eigene Ausrüstung, langjährige Erfahrung und Reparatur auf Bauteilebene. In der eigenen Werkstatt stehen professionelle Mikroskop-, Löt-, Diagnose- und Rework-Systeme für komplexe Reparaturen bereit.</p>
+                    </div>
+                </article>
             </div>
         </section>
 
@@ -177,52 +297,10 @@
                     <p>Mein Spezialgebiet sind komplexe Motherboard-Reparaturen und Datenrettung, aber auch bei Displayschäden oder beim Akkutausch stehe ich Ihnen gerne zur Seite. Ich verwende ausschließlich Original-Ersatzteile und modernstes Werkzeug. Ihre Zufriedenheit ist mir sehr wichtig!</p>
                     <p>Dank meines eigenen Ersatzteillagers erledige ich <strong>9/10</strong> aller Reparaturen direkt am selben Tag. Sie können Geräte nach Vereinbarung persönlich übergeben oder bequem per Kurier schicken. Hinterlassen Sie mir auch gerne Ihre Anfragen und Wünsche!</p>
                 </div>
-
-                <ul class="columns columns--quiet columns--2-3">
-                    <li>
-                        <h3>Qualität</h3>
-                        <p>Saubere, professionelle Ausführung und sorgfältige Diagnose.</p>
-                    </li>
-                    <li>
-                        <h3>Schnelle Bearbeitung</h3>
-                        <p>Kurze und verlässliche Reparaturzeiten für Ihre Kunden.</p>
-                    </li>
-                    <li>
-                        <h3>Erfahrung</h3>
-                        <p>15 Jahre tägliche Praxis mit komplexen Fehlerbildern und Mikroelektronik, davon 9 Jahre in der Ukraine und anschließend in Polen.</p>
-                    </li>
-                    <li>
-                        <h3>Eigene Ausstattung</h3>
-                        <p>Keine Weitergabe an Dritte bei den meisten Arbeiten. Ich erledige alle typische anspruchsvolle Reparaturaufgaben selbst.</p>
-                    </li>
-                    <li>
-                        <h3>Garantie</h3>
-                        <p>12 Monate Garantie auf alle ausgeführten Reparaturarbeiten.</p>
-                    </li>
-                    <li>
-                        <h3>Flexible B2B-Konditionen</h3>
-                        <p>Preise und Abläufe werden abhängig von Art und Volumen der Aufträge individuell vereinbart.</p>
-                    </li>
-                </ul>
             </div>
         </section>
 
-        <section id="ausruestung" class="section" aria-labelledby="ausruestung-titel">
-            <div class="container">
-                <div class="section-head">
-                    <h2 id="ausruestung-titel">Ausrüstung: Reparatur auf Bauteilebene</h2>
-                    <p>Eigene Ausrüstung, langjährige Erfahrung und Reparatur auf Bauteilebene. In der eigenen Werkstatt stehen professionelle Mikroskop-, Löt-, Diagnose- und Rework-Systeme für komplexe Reparaturen bereit.</p>
-                </div>
-                <div class="gallery">
-                    <figure><img src="1.png" width="800" height="600" loading="lazy" decoding="async" alt="Professionelle Werkbank für Handy- und Microsoldering-Reparaturen in Linz"></figure>
-                    <figure><img src="2.png" width="800" height="600" loading="lazy" decoding="async" alt="Mikroskop und Lötstation für BGA-Rework und Mainboard-Instandsetzung"></figure>
-                    <figure><img src="3.png" width="800" height="600" loading="lazy" decoding="async" alt="Spezialwerkzeug für Prozessor- und Chip-Austausch"></figure>
-                    <figure><img src="4.png" width="800" height="600" loading="lazy" decoding="async" alt="Beispiel einer erfolgreichen Platinen-Reparatur"></figure>
-                </div>
-            </div>
-        </section>
-
-        <section id="kontakt" class="section section--alt" aria-labelledby="kontakt-titel">
+        <section id="kontakt" class="section" aria-labelledby="kontakt-titel">
             <div class="container">
                 <div class="section-head">
                     <h2 id="kontakt-titel">Kontakt für B2B-Anfragen</h2>
@@ -270,7 +348,7 @@
         </section>
     </main>
 
-  <footer class="site-footer">
+    <footer class="site-footer">
         <div class="container">
             <div class="footer-grid">
                 <div>
