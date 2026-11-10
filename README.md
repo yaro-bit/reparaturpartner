@@ -6,8 +6,8 @@ Static landing page designed for a B2B electronics repair service operating in L
 
 - **Markup:** HTML5 (Semantic elements, section-based layout)
 - **Styling:** CSS3 (Responsive design optimized for mobile and desktop viewports)
-- **Font:** Montserrat, Argentina (SIL OFL 1.1), self-hosted in `/fonts`. No request to Google Fonts.
-- **Hosting & Deployment:** Vercel, United States [Security / Compliance Note: Vercel is a United States-based cloud platform; standard data privacy and compliance terms apply.]
+- **Font:** Montserrat, Argentina (SIL OFL 1.1), self-hosted in `/fonts`.
+- **Hosting & Deployment:** Vercel, United States 
 - **Assets:** Photos as WebP in `/img` (about 220 KB total), own vector graphics (inline SVG icons, `img/circuit.svg`, wave dividers)
 
 ## Architecture & Features
