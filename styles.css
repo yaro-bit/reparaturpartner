@@ -1,4 +1,8 @@
-/* 0 Start ========================================================================== */
+/* ==========================================================================
+   Iaroslav Komakha - B2B Reparaturpartner
+   Reines CSS, kein Build-Schritt, keine externen Ressourcen.
+   Schrift: Montserrat (SIL OFL 1.1), selbst gehostet im Ordner /fonts.
+   ========================================================================== */
 
 @font-face {
   font-family: "Montserrat";
@@ -30,12 +34,12 @@
   --muted: #4b5563;
   --border: #d1d5db;
   --line: #e5e7eb;
-  --surface: #f4f7fa;
+  --surface: #f8fafc;
   --white: #ffffff;
   --accent: #003b73;
   --accent-strong: #c51d34;
-  --soft: #c6d8ef;
-  --on-blue: #eaf1f8;
+  --soft: #d2e3fc;
+  --on-blue: #e8f0fe;
 
   --container: 68.75rem;
   --gutter: 1.25rem;
@@ -417,6 +421,40 @@ main {
   white-space: nowrap;
 }
 
+/* Formulare: Unterdrückung des sofortigen roten Rahmens */
+input:not(:placeholder-shown):invalid,
+textarea:not(:placeholder-shown):invalid {
+  border-color: var(--border);
+}
+
+input.is-invalid,
+textarea.is-invalid {
+  border-color: var(--accent-strong) !important;
+  outline: none;
+}
+
+input,
+textarea,
+select {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  font-family: var(--font-body);
+  font-size: 1rem;
+  color: var(--text);
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 0.5rem;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  border-color: var(--accent);
+  outline: 3px solid var(--soft);
+  outline-offset: -1px;
+}
+
 .hero {
   position: relative;
   padding-block: 3rem 5rem;
@@ -616,6 +654,30 @@ main {
   font-size: 1rem;
   line-height: 1.55;
   color: var(--muted);
+}
+
+/* Slide-in Animationen für Bilder und Spalten */
+.feature img,
+.columns li {
+  opacity: 0;
+  will-change: transform, opacity;
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.feature:nth-child(odd) img,
+.columns li:nth-child(odd) {
+  transform: translateX(-4rem);
+}
+
+.feature:nth-child(even) img,
+.columns li:nth-child(even) {
+  transform: translateX(4rem);
+}
+
+.feature.is-visible img,
+.columns li.is-visible {
+  opacity: 1;
+  transform: translateX(0);
 }
 
 .feature img {
@@ -846,7 +908,7 @@ main {
 @media (min-width: 40em) {
   .contact-grid {
     grid-template-columns: repeat(3, 1fr);
-    }
+  }
 }
 
 @media (min-width: 48em) {
@@ -911,7 +973,11 @@ main {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .btn {
+  .btn,
+  .feature img,
+  .columns li {
     transition: none;
+    opacity: 1;
+    transform: none;
   }
 }
