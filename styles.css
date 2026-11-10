@@ -1,14 +1,5 @@
-/* ==========================================================================
-   Iaroslav Komakha - B2B Reparaturpartner
-   Reines CSS, kein Build-Schritt, keine externen Ressourcen.
-   Schrift: Montserrat (SIL OFL 1.1), selbst gehostet im Ordner /fonts.
-   Aufbau: 1 Variablen | 2 Basis | 3 Layout | 4 Komponenten | 5 Responsive
-   Gestaltung: Farben, Schriftgrößen, Pill-Buttons und Container-Breite
-   nach der Referenzseite (Blau #00377B, Hover Rot #D61634, Hellblau #BCD3EE,
-   Fließtext #505050, Container 1100px).
-   ========================================================================== */
+/* 0 Start ========================================================================== */
 
-/* Schrift: selbst gehostet, kein Abruf bei Google */
 @font-face {
   font-family: "Montserrat";
   font-style: normal;
@@ -35,16 +26,16 @@
 
 /* 1 Variablen ------------------------------------------------------------ */
 :root {
-  --text: #000000;
-  --muted: #505050;
-  --border: #d0d5dc;
-  --line: #979797;
-  --surface: #f3f6fa;
+  --text: #111827;
+  --muted: #4b5563;
+  --border: #d1d5db;
+  --line: #e5e7eb;
+  --surface: #f4f7fa;
   --white: #ffffff;
-  --accent: #00377b;
-  --accent-strong: #d61634;
-  --soft: #bcd3ee;
-  --on-blue: #e2e2e2;
+  --accent: #003b73;
+  --accent-strong: #c51d34;
+  --soft: #c6d8ef;
+  --on-blue: #eaf1f8;
 
   --container: 68.75rem;
   --gutter: 1.25rem;
@@ -52,7 +43,6 @@
   --font-body: Montserrat, "Helvetica Neue", Helvetica, Arial, sans-serif;
   --font-head: Montserrat, "Helvetica Neue", Helvetica, Arial, sans-serif;
 
-  /* Bildausschnitt der Fotos: "cover" schneidet zu, "contain" zeigt alles */
   --img-fit: cover;
 }
 
@@ -189,10 +179,8 @@ main {
 }
 
 /* 4 Komponenten ---------------------------------------------------------- */
-
-/* Kopfbereich: Hinweisleiste + Navigation */
 .site-top {
-  display: contents; /* mobil: nur die Hinweisleiste bleibt oben haften */
+  display: contents;
 }
 
 .promo {
@@ -286,7 +274,6 @@ main {
   color: var(--accent-strong);
 }
 
-/* Mobiles Menü: nur aktiv, wenn script.js läuft (Klasse .js) */
 .nav-toggle {
   display: none;
   padding: 0.5rem 1.25rem;
@@ -356,7 +343,6 @@ main {
   }
 }
 
-/* Schaltflächen (Pill-Form wie in der Referenz) */
 .btn {
   display: inline-block;
   padding: 0.95rem 1.5rem;
@@ -368,7 +354,7 @@ main {
   text-decoration: none;
   border: 2px solid transparent;
   border-radius: 1.8em;
-  transition: background-color 0.1s ease, color 0.1s ease, border-color 0.1s ease;
+  transition: background-color 0.15s ease, color 0.15s ease, border-color 0.15s ease;
 }
 
 .btn--primary {
@@ -431,7 +417,6 @@ main {
   white-space: nowrap;
 }
 
-/* Startbereich (blau, weiße Schrift) */
 .hero {
   position: relative;
   padding-block: 3rem 5rem;
@@ -439,7 +424,6 @@ main {
   background: var(--accent) url("img/circuit.svg") right center / cover no-repeat;
 }
 
-/* Geschwungene Trennkanten (eigene Vektorgrafik, Farbe über --wave) */
 .wave {
   position: absolute;
   left: 0;
@@ -476,7 +460,6 @@ main {
   --wave: var(--surface);
 }
 
-/* Vektor-Icons */
 .icon {
   display: inline-flex;
   align-items: center;
@@ -521,14 +504,15 @@ main {
 }
 
 .facts {
-    width: 100%;
-    align-self: center;
-    display: flex;
-    flex-direction: column;
-    overflow: hidden;
-    background: rgba(255, 255, 255, 0.08);
-    border: 1px solid rgba(255, 255, 255, 0.35);
-    border-radius: 1.25rem;
+  width: 100%;
+  align-self: center;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: 1.25rem;
+  backdrop-filter: blur(4px);
 }
 
 .facts caption {
@@ -543,14 +527,14 @@ main {
 .facts th,
 .facts td {
   padding: 0.75rem 1rem;
-  border-top: 1px solid rgba(255, 255, 255, 0.35);
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
 }
 
 .facts th {
   font-size: 0.875rem;
   font-weight: 400;
   text-align: left;
-  color: var(--soft);
+  color: var(--on-blue);
 }
 
 .facts td {
@@ -561,7 +545,6 @@ main {
   color: var(--white);
 }
 
-/* Spalten (Kooperation, Vorteile) */
 .columns {
   display: grid;
   gap: 2rem;
@@ -592,14 +575,13 @@ main {
   font-weight: 700;
 }
 
-/* Vorteile auf blauem Grund */
 .columns--on-blue li {
-  background: rgba(255, 255, 255, 0.08);
-  border: 1px solid rgba(255, 255, 255, 0.22);
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.18);
 }
 
 .columns--on-blue .icon {
-  background: rgba(255, 255, 255, 0.16);
+  background: rgba(255, 255, 255, 0.12);
 }
 
 .columns--on-blue h3 {
@@ -610,10 +592,9 @@ main {
 .columns--on-blue p {
   font-size: 0.875rem;
   line-height: 1.45;
-  color: var(--white);
+  color: var(--on-blue);
 }
 
-/* Leistungen: Bild/Text im Wechsel */
 .feature-list {
   display: grid;
   gap: 3rem;
@@ -645,14 +626,13 @@ main {
   object-position: center;
   background: var(--surface);
   border-radius: 1.5rem;
-  box-shadow: 0.75rem 0.75rem 0 var(--soft), 0 12px 32px rgba(0, 55, 123, 0.18);
+  box-shadow: 0.75rem 0.75rem 0 var(--soft), 0 12px 32px rgba(0, 59, 115, 0.15);
 }
 
 .feature:nth-child(even) img {
-  box-shadow: -0.75rem 0.75rem 0 var(--soft), 0 12px 32px rgba(0, 55, 123, 0.18);
+  box-shadow: -0.75rem 0.75rem 0 var(--soft), 0 12px 32px rgba(0, 59, 115, 0.15);
 }
 
-/* Weitere Leistungen: Liste mit Trennlinien */
 .subhead {
   margin-block: 3.5rem 1.25rem;
   font-size: 1.5rem;
@@ -681,7 +661,6 @@ main {
   color: var(--muted);
 }
 
-/* Über mich */
 .about-text {
   display: grid;
   gap: 1rem;
@@ -694,7 +673,6 @@ main {
   color: var(--text);
 }
 
-/* Kontakt */
 .contact-grid {
   display: grid;
   gap: 1rem;
@@ -747,7 +725,6 @@ main {
   color: var(--muted);
 }
 
-/* Abschluss-Aufruf */
 .cta {
   padding-block: 3.5rem;
   color: var(--white);
@@ -773,7 +750,6 @@ main {
   margin-top: 1.75rem;
 }
 
-/* Fußbereich (hell, wie in der Referenz) */
 .site-footer {
   color: var(--text);
   background: var(--white);
@@ -829,7 +805,6 @@ main {
   border-top: 1px solid var(--border);
 }
 
-/* Rechtstexte (Impressum, Datenschutz) */
 .legal {
   max-width: 46rem;
   margin-inline: auto;
@@ -871,7 +846,7 @@ main {
 @media (min-width: 40em) {
   .contact-grid {
     grid-template-columns: repeat(3, 1fr);
-  }
+    }
 }
 
 @media (min-width: 48em) {
