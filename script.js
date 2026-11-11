@@ -4,9 +4,9 @@
   var d = document;
   var btn = d.querySelector('.nav-toggle');
   var nav = d.getElementById('site-nav');
-  if (!btn || !nav) return;
 
   d.documentElement.classList.add('js');
+  if (!btn || !nav) return;
 
   function setOpen(open) {
     nav.classList.toggle('is-open', open);
@@ -26,25 +26,71 @@
   });
 })();
 
-/* Ein-/Ausblenden des Anfrage-Formulars per Button */
+/* Anfrage-Formular als Popup (natives dialog-Element).
+   Schliessen: X-Button, Klick neben das Fenster oder Esc. */
 (function () {
   var d = document;
-  var toggleBtn = d.getElementById('toggle-form-btn');
-  var formContainer = d.getElementById('form-container');
-  if (!toggleBtn || !formContainer) return;
+  var openBtn = d.getElementById('toggle-form-btn');
+  var dlg = d.getElementById('form-container');
+  if (!openBtn || !dlg || typeof dlg.showModal !== 'function') return;
 
-  toggleBtn.addEventListener('click', function () {
-    var isHidden = formContainer.hasAttribute('hidden');
-    if (isHidden) {
-      formContainer.removeAttribute('hidden');
-      toggleBtn.textContent = 'Formular verbergen';
-      // Sanft zum Formular scrollen
-      formContainer.scrollIntoView({ behavior: 'smooth' });
-    } else {
-      formContainer.setAttribute('hidden', 'true');
-      toggleBtn.textContent = 'Reparaturanfrage starten';
-    }
+  var closeBtn = d.getElementById('form-close-btn');
+  var root = d.documentElement;
+
+  function openModal() {
+    if (dlg.open) return;
+    dlg.showModal();
+    root.classList.add('modal-open');
+  }
+
+  function closeModal() {
+    if (dlg.open) dlg.close();
+  }
+
+  openBtn.addEventListener('click', openModal);
+  if (closeBtn) closeBtn.addEventListener('click', closeModal);
+
+  dlg.addEventListener('click', function (e) {
+    if (e.target === dlg) closeModal();
   });
+
+  dlg.addEventListener('close', function () {
+    root.classList.remove('modal-open');
+    openBtn.focus();
+  });
+
+  /* Weitere Links auf #anfrage oeffnen ebenfalls das Popup */
+  var links = d.querySelectorAll('a[href="#anfrage"]');
+  for (var k = 0; k < links.length; k++) {
+    links[k].addEventListener('click', function (e) {
+      e.preventDefault();
+      openModal();
+    });
+  }
+})();
+
+/* Bilder fliegen beim Scrollen von links bzw. rechts ein
+   (Richtung wird im CSS ueber die Position im Layout festgelegt). */
+(function () {
+  var d = document;
+  var items = d.querySelectorAll('.feature');
+  if (!items.length) return;
+
+  if (!('IntersectionObserver' in window)) {
+    for (var n = 0; n < items.length; n++) items[n].classList.add('is-in');
+    return;
+  }
+
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (entry) {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('is-in');
+        io.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.2, rootMargin: '0px 0px -8% 0px' });
+
+  for (var m = 0; m < items.length; m++) io.observe(items[m]);
 })();
 
 /* Kontaktformular: native Pflichtfeldpruefung plus Web3Forms-Versand. */

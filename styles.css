@@ -944,18 +944,168 @@ main {
     animation-iteration-count: 1 !important;
   }
 }
-/* Formular-Umschalter und Fallback ohne JS */
-.form-toggle-container[hidden] {
-  display: none !important;
+/* Anfrage-Bereich (nach "Kooperation") */
+.section--request {
+  padding-top: 0;
 }
 
-/* Fallback für Nutzer ohne JavaScript: Formular direkt anzeigen */
-html:not(.js) #form-container {
-  display: block !important;
+.request-box {
+  max-width: 46rem;
+  margin-inline: auto;
+  padding: 3rem 2rem;
+  text-align: center;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 1.5rem;
 }
 
-html:not(.js) #toggle-form-btn {
-  display: none !important;
+.request-box h2 {
+  font-size: clamp(1.5rem, 1.2rem + 1.2vw, 2.125rem);
+}
+
+.request-box p {
+  margin: 1rem 0 2rem;
+  font-size: 1.0625rem;
+  color: var(--muted);
+}
+
+/* Formular als Popup (dialog) */
+.form-modal {
+  width: min(34rem, calc(100% - 2rem));
+  max-height: calc(100dvh - 2rem);
+  padding: 0;
+  overflow: auto;
+  color: var(--muted);
+  background: var(--white);
+  border: none;
+  border-radius: 1.25rem;
+  box-shadow: var(--shadow-lg);
+}
+
+.form-modal[open] {
+  animation: modal-in 0.28s cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+
+.form-modal[open]::backdrop {
+  background: rgba(0, 0, 0, 0.55);
+  -webkit-backdrop-filter: blur(4px);
+  backdrop-filter: blur(4px);
+  animation: backdrop-in 0.28s ease;
+}
+
+.form-modal__inner {
+  position: relative;
+  padding: 2rem;
+}
+
+.form-modal h2 {
+  margin: 0 2.5rem 1.5rem 0;
+  font-size: 1.5rem;
+}
+
+.form-modal__close {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  padding: 0;
+  font: inherit;
+  font-size: 1.75rem;
+  line-height: 1;
+  color: var(--text);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  cursor: pointer;
+  transition: background 0.18s ease;
+}
+
+.form-modal__close:hover {
+  background: var(--surface-strong);
+}
+
+.form-modal__inner input:focus-visible,
+.form-modal__inner textarea:focus-visible {
+  outline-offset: 1px;
+}
+
+html.modal-open {
+  overflow: hidden;
+}
+
+@keyframes modal-in {
+  from { opacity: 0; transform: translateY(1.25rem) scale(0.97); }
+  to   { opacity: 1; transform: none; }
+}
+
+@keyframes backdrop-in {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+/* Fallback ohne JavaScript: Formular direkt als Block anzeigen */
+html:not(.js) .form-modal {
+  display: block;
+  position: static;
+  margin: 2rem auto 0;
+  box-shadow: none;
+  border: 1px solid var(--border);
+}
+
+html:not(.js) #toggle-form-btn,
+html:not(.js) .form-modal__close {
+  display: none;
+}
+
+@media (max-width: 30em) {
+  .request-box {
+    padding: 2rem 1.25rem;
+  }
+
+  .form-modal__inner {
+    padding: 1.5rem 1.25rem;
+  }
+}
+
+/* Footer-Icons: Strichgrafiken (Feather-Stil), sonst werden sie gefuellt und unvollstaendig dargestellt */
+.site-footer svg {
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+/* Scroll-Animation: Bilder fliegen je nach Layout von links bzw. rechts ein */
+main {
+  overflow-x: clip;
+}
+
+.js .feature img {
+  opacity: 0;
+  transform: translateX(-7rem);
+}
+
+.js .feature:nth-child(even) img {
+  transform: translateX(7rem);
+}
+
+.js .feature.is-in img {
+  opacity: 1;
+  transform: none;
+  transition: opacity 0.8s ease, transform 0.9s cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+
+@media (prefers-reduced-motion: reduce), print {
+  .js .feature img,
+  .js .feature:nth-child(even) img {
+    opacity: 1 !important;
+    transform: none !important;
+  }
 }
 
 /* Zentraler Header mit Logo */
