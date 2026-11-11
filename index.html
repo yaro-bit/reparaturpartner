@@ -205,19 +205,16 @@
                 <div class="header-nav-row">
                     <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">Menü</button>
                     <nav class="site-nav" id="site-nav" aria-label="Hauptnavigation">
-                        <ul>
-                            <li><a href="#kooperation">Kooperation</a></li>
-                            <li><a href="#leistungen">Leistungen</a></li>
-                            <li><a href="#vorteile">Vorteile</a></li>
-                            <li><a href="#ausruestung">Ausrüstung</a></li>
-                            <li><a href="#ueber-mich">Über mich</a></li>
-                            <li><a href="#kontakt">Kontakt</a></li>
-                        </ul>
-                    </nav>
-                    <a class="header-contact" href="tel:+436706577783">
-                        <span class="label">Direkt anrufen</span>
-                        <span class="value">+43&nbsp;670&nbsp;657&nbsp;7783</span>
-                    </a>
+						<ul>
+							<li><a href="#kooperation">Kooperation</a></li>
+							<li><a href="#leistungen">Leistungen</a></li>
+							<li><a href="#vorteile">Vorteile</a></li>
+							<li><a href="#ausruestung">Ausrüstung</a></li>
+							<li><a href="#ueber-mich">Über mich</a></li>
+							<li><a href="#kontakt">Kontakt</a></li>
+							<li><a href="#adresse">Adresse</a></li>
+						</ul>
+					</nav>
                 </div>
             </div>
         </header>
@@ -256,11 +253,11 @@
                         <h3>Technik auf Bauteilebene</h3>
                         <p>Reparaturen direkt auf Mikroelektronik-Ebene. Komplexe Fehler, die woanders als unreparierbar gelten, werden hier gelöst.</p>
                     </li>
-                    <li>
-                        <span class="icon" aria-hidden="true"><svg><use href="#i-box"/></svg></span>
-                        <h3>Versand oder persönliche Übergabe</h3>
-                        <p>Senden Sie Ihr Gerät per Post oder Kurier ein, oder vereinbaren Sie eine direkte Übergabe in Linz. Die Adresse erhalten Sie auf Anfrage.</p>
-                    </li>
+					<li>
+						<span class="icon" aria-hidden="true"><svg><use href="#i-box"/></svg></span>
+						<h3>Versand, Abholung &amp; flexible Wünsche</h3>
+						<p>Kostenlose Rücksendung nach der Reparatur. Für B2B-Kunden in Linz Stadt bieten wir auf Wunsch einen direkten Abholservice an. Wir gehen individuell auf Ihre Anforderungen ein.</p>
+					</li>
                 </ul>
             </div>
         </section>
@@ -493,25 +490,28 @@
             </div>
         </dialog>
 
-        <section class="cta" aria-labelledby="cta-titel">
-            <div class="container">
-                <h2 id="cta-titel">Senden Sie Ihr Gerät per Post ein oder vereinbaren Sie eine persönliche Übergabe in Linz.</h2>
-                <div style="width: 100%; max-width: 600px; margin: 1.5rem auto;">
-                    <div id="maps-wrapper">
-                        <div class="maps-placeholder" id="maps-placeholder">
-                            <p>Aus Datenschutzgründen wird die Karte von Google Maps erst nach Ihrer Einwilligung geladen.</p>
-                            <button type="button" id="load-maps-btn">Karte laden</button>
-                        </div>
-                    </div>
-                </div>
-                <p>Details zum Ablauf besprechen wir am besten direkt per Telefon, E-Mail oder Telegram.</p>
-                <div class="btn-row">
-                    <button type="button" class="btn btn--light open-form-modal-btn">Jetzt Reparatur anfragen</button>
-                    <a class="btn btn--outline-light" href="tel:+436706577783">+43&nbsp;670&nbsp;657&nbsp;7783</a>
-                    <a class="btn btn--outline-light" href="reparaturpartner.vcf" download>Kontakt für später speichern</a>
-                </div>
-            </div>
-        </section>
+		<section id="adresse" class="cta" aria-labelledby="cta-titel">
+			<div class="container">
+				<h2 id="cta-titel">Senden Sie Ihr Gerät per Post ein oder vereinbaren Sie eine persönliche Übergabe in Linz.</h2>
+				<p style="margin-top: 0.75rem; font-size: 1.05rem; opacity: 0.95;">
+					Die Rücksendung nach der Reparatur ist für Sie kostenlos. Für B2B-Kunden in Linz Stadt bieten wir auf Wunsch auch eine direkte Abholung an.
+				</p>
+				<div style="width: 100%; max-width: 600px; margin: 1.5rem auto;">
+					<div id="maps-wrapper">
+						<div class="maps-placeholder" id="maps-placeholder">
+							<p>Aus Datenschutzgründen wird die Karte von Google Maps erst nach Ihrer Einwilligung geladen.</p>
+							<button type="button" id="load-maps-btn">Karte laden</button>
+						</div>
+					</div>
+				</div>
+				<p>Details zum Ablauf besprechen wir am besten direkt per Telefon, E-Mail oder Telegram.</p>
+				<div class="btn-row">
+					<button type="button" class="btn btn--light open-form-modal-btn">Jetzt Reparatur anfragen</button>
+					<a class="btn btn--outline-light" href="tel:+436706577783">+43&nbsp;670&nbsp;657&nbsp;7783</a>
+					<a class="btn btn--outline-light" href="reparaturpartner.vcf" download>Kontakt für später speichern</a>
+				</div>
+			</div>
+		</section>
     </main>
 
     <footer class="site-footer">
