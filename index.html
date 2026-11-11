@@ -231,8 +231,9 @@
                     <div class="kooperation-text">
                         <h2 id="kooperation-titel">iDad - Professioneller Reparaturservice in Linz für Gewerbe &amp; Privat</h2>
                         <p>Spezialisierte Mainboard-Reparaturen, BGA-Rework und Microsoldering für Handyshops, Werkstätten sowie direkt für Privatkunden. Die Abwicklung erfolgt unkompliziert per Versand oder nach persönlicher Vereinbarung.</p>
-                        <div class="kooperation-cta">
-                            <a class="btn btn--primary" href="#kontakt">Jetzt anfragen</a>
+                        <div class="kooperation-cta" style="display: flex; gap: 1rem; flex-wrap: wrap;">
+                            <button type="button" class="btn btn--primary open-form-modal-btn">Jetzt anfragen</button>
+                            <a class="btn btn--outline-light" href="#kontakt" style="border-color: var(--primary); color: var(--primary);">Kontakt</a>
                         </div>
                     </div>
 
@@ -248,7 +249,7 @@
                         <span class="icon" aria-hidden="true"><svg><use href="#i-bolt"/></svg></span>
                         <h3>Für B2B &amp; Privatkunden</h3>
                         <p>Ob Handyshop mit Großaufträgen oder Privatkunde mit defektem Smartphone – bei iDad ist jedes Gerät in besten Händen.</p>
-                        <a class="more" href="#kontakt">Jetzt anfragen</a>
+                        <a class="more open-form-modal-btn" href="#anfrage" style="cursor: pointer;">Jetzt anfragen</a>
                     </li>
                     <li>
                         <span class="icon" aria-hidden="true"><svg><use href="#i-chip"/></svg></span>
@@ -262,52 +263,6 @@
                     </li>
                 </ul>
             </div>
-        </section>
-
-        <section id="anfrage" class="section section--request" aria-labelledby="anfrage-titel">
-            <div class="container">
-                <div class="request-box">
-                    <h2 id="anfrage-titel">Haben Sie den Verdacht, dass mit Ihrem Gerät etwas nicht stimmt?</h2>
-                    <p>Wir führen eine präzise Diagnose und eine kostenlose Beratung durch – für Geschäftskunden und Privatkunden.</p>
-                    <button type="button" id="toggle-form-btn" class="btn btn--primary" aria-haspopup="dialog" aria-controls="form-container">
-                        Reparaturanfrage starten
-                    </button>
-                </div>
-            </div>
-
-            <dialog id="form-container" class="form-modal" aria-labelledby="form-title">
-                <div class="form-modal__inner">
-                    <button type="button" class="form-modal__close" id="form-close-btn" aria-label="Formular schließen">&times;</button>
-                    <h2 id="form-title">Reparaturanfrage</h2>
-                    <div id="form-status" role="status" aria-live="polite" tabindex="-1" hidden style="padding: 1rem; border-radius: 0.5rem; margin-bottom: 1.5rem; font-size: 0.9375rem;"></div>
-
-                    <form id="form" class="repair-contact-form" action="https://api.web3forms.com/submit" method="POST" style="display: grid; gap: 1.25rem;">
-                        <input type="hidden" name="access_key" value="029de4c1-ca1f-46d5-9054-4d6a770d00f3">
-                        <input type="hidden" name="subject" value="iDad Reparaturanfrage über die Website">
-                        
-                        <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
-                        
-                        <div class="form-group" style="display: grid; gap: 0.375rem;">
-                            <label for="user-name" style="font-weight: 700; font-size: 0.9375rem;">Name <span style="color: #d61634;">*</span></label>
-                            <input type="text" id="user-name" name="name" required minlength="2" maxlength="100" autocomplete="name" style="padding: 0.75rem 1rem; border: 1px solid #d0d5dc; border-radius: 0.5rem; font: inherit;">
-                        </div>
-
-                        <div class="form-group" style="display: grid; gap: 0.375rem;">
-                            <label for="user-phone" style="font-weight: 700; font-size: 0.9375rem;">Telefon <span style="color: #d61634;">*</span></label>
-                            <input type="tel" id="user-phone" name="phone" required minlength="7" maxlength="25" pattern="[0-9+() /.-]{7,25}" autocomplete="tel" inputmode="tel" aria-describedby="phone-help" placeholder="+43 ..." title="Bitte geben Sie eine gültige Telefonnummer ein." style="padding: 0.75rem 1rem; border: 1px solid #d0d5dc; border-radius: 0.5rem; font: inherit;">
-                            <span id="phone-help" style="font-size: 0.8125rem; color: #6e6e73;">Bitte geben Sie eine Telefonnummer mit mindestens 7 Zeichen ein.</span>
-                        </div>
-
-                        <div class="form-group" style="display: grid; gap: 0.375rem;">
-                            <label for="device-info" style="font-weight: 700; font-size: 0.9375rem;">Gerät und Fehlerbeschreibung</label>
-                            <textarea id="device-info" name="message" rows="4" placeholder="Geben Sie Gerätemodell und Symptom an..." style="padding: 0.75rem 1rem; border: 1px solid #d0d5dc; border-radius: 0.5rem; font: inherit; resize: vertical;"></textarea>
-                        </div>
-
-                        <button type="submit" class="btn btn--primary" style="justify-self: start; cursor: pointer;">Absenden</button>
-                    </form>
-                    <p style="margin-top: 1rem; font-size: 0.8125rem; color: #6e6e73;">Ihre Angaben werden zur Bearbeitung der Anfrage über Web3Forms übertragen. Einzelheiten finden Sie in der <a href="datenschutz.html">Datenschutzerklärung</a>.</p>
-                </div>
-            </dialog>
         </section>
 
         <section id="leistungen" class="section section--alt" aria-labelledby="leistungen-titel">
@@ -467,6 +422,14 @@
                     <p>Ganz gleich ob Geschäftspartner oder Privatkunde – ich freue mich auf Ihre Anfrage.</p>
                 </div>
 
+                <div class="request-box" style="margin-bottom: 2.5rem; text-align: center; background: var(--surface-alt, #f4f5f7); padding: 2rem; border-radius: 0.75rem;">
+                    <h3 style="margin-top: 0; font-size: 1.25rem; margin-bottom: 0.75rem;">Haben Sie den Verdacht, dass mit Ihrem Gerät etwas nicht stimmt?</h3>
+                    <p style="margin-bottom: 1.25rem;">Wir führen eine präzise Diagnose und eine kostenlose Beratung durch – für Geschäftskunden und Privatkunden.</p>
+                    <button type="button" class="btn btn--primary open-form-modal-btn" aria-haspopup="dialog" aria-controls="form-container">
+                        Reparaturanfrage starten
+                    </button>
+                </div>
+
                 <ul class="contact-grid">
                     <li>
                         <a class="contact-card" href="tel:+436706577783">
@@ -495,6 +458,41 @@
             </div>
         </section>
 
+        <!-- Modal Dialog für Reparaturanfrage -->
+        <dialog id="form-container" class="form-modal" aria-labelledby="form-title">
+            <div class="form-modal__inner">
+                <button type="button" class="form-modal__close" id="form-close-btn" aria-label="Formular schließen">&times;</button>
+                <h2 id="form-title">Reparaturanfrage</h2>
+                <div id="form-status" role="status" aria-live="polite" tabindex="-1" hidden style="padding: 1rem; border-radius: 0.5rem; margin-bottom: 1.5rem; font-size: 0.9375rem;"></div>
+
+                <form id="form" class="repair-contact-form" action="https://api.web3forms.com/submit" method="POST" style="display: grid; gap: 1.25rem;">
+                    <input type="hidden" name="access_key" value="029de4c1-ca1f-46d5-9054-4d6a770d00f3">
+                    <input type="hidden" name="subject" value="iDad Reparaturanfrage über die Website">
+                    
+                    <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
+                    
+                    <div class="form-group" style="display: grid; gap: 0.375rem;">
+                        <label for="user-name" style="font-weight: 700; font-size: 0.9375rem;">Name <span style="color: #d61634;">*</span></label>
+                        <input type="text" id="user-name" name="name" required minlength="2" maxlength="100" autocomplete="name" style="padding: 0.75rem 1rem; border: 1px solid #d0d5dc; border-radius: 0.5rem; font: inherit;">
+                    </div>
+
+                    <div class="form-group" style="display: grid; gap: 0.375rem;">
+                        <label for="user-phone" style="font-weight: 700; font-size: 0.9375rem;">Telefon <span style="color: #d61634;">*</span></label>
+                        <input type="tel" id="user-phone" name="phone" required minlength="7" maxlength="25" pattern="[0-9+() /.-]{7,25}" autocomplete="tel" inputmode="tel" aria-describedby="phone-help" placeholder="+43 ..." title="Bitte geben Sie eine gültige Telefonnummer ein." style="padding: 0.75rem 1rem; border: 1px solid #d0d5dc; border-radius: 0.5rem; font: inherit;">
+                        <span id="phone-help" style="font-size: 0.8125rem; color: #6e6e73;">Bitte geben Sie eine Telefonnummer mit mindestens 7 Zeichen ein.</span>
+                    </div>
+
+                    <div class="form-group" style="display: grid; gap: 0.375rem;">
+                        <label for="device-info" style="font-weight: 700; font-size: 0.9375rem;">Gerät und Fehlerbeschreibung</label>
+                        <textarea id="device-info" name="message" rows="4" placeholder="Geben Sie Gerätemodell und Symptom an..." style="padding: 0.75rem 1rem; border: 1px solid #d0d5dc; border-radius: 0.5rem; font: inherit; resize: vertical;"></textarea>
+                    </div>
+
+                    <button type="submit" class="btn btn--primary" style="justify-self: start; cursor: pointer;">Absenden</button>
+                </form>
+                <p style="margin-top: 1rem; font-size: 0.8125rem; color: #6e6e73;">Ihre Angaben werden zur Bearbeitung der Anfrage über Web3Forms übertragen. Einzelheiten finden Sie in der <a href="datenschutz.html">Datenschutzerklärung</a>.</p>
+            </div>
+        </dialog>
+
         <section class="cta" aria-labelledby="cta-titel">
             <div class="container">
                 <h2 id="cta-titel">Senden Sie Ihr Gerät per Post ein oder vereinbaren Sie eine persönliche Übergabe in Linz.</h2>
@@ -508,7 +506,7 @@
                 </div>
                 <p>Details zum Ablauf besprechen wir am besten direkt per Telefon, E-Mail oder Telegram.</p>
                 <div class="btn-row">
-                    <a class="btn btn--light" href="#anfrage">Jetzt Reparatur anfragen</a>
+                    <button type="button" class="btn btn--light open-form-modal-btn">Jetzt Reparatur anfragen</button>
                     <a class="btn btn--outline-light" href="tel:+436706577783">+43&nbsp;670&nbsp;657&nbsp;7783</a>
                     <a class="btn btn--outline-light" href="reparaturpartner.vcf" download>Kontakt für später speichern</a>
                 </div>
@@ -569,6 +567,32 @@
 
     <script>
         document.addEventListener("DOMContentLoaded", function() {
+            // Global handling for all modal open buttons/links
+            const modalOpenButtons = document.querySelectorAll(".open-form-modal-btn");
+            const formContainer = document.getElementById("form-container");
+            const formCloseBtn = document.getElementById("form-close-btn");
+
+            modalOpenButtons.forEach(btn => {
+                btn.addEventListener("click", function(e) {
+                    e.preventDefault();
+                    if (formContainer && typeof formContainer.showModal === "function") {
+                        formContainer.showModal();
+                    } else if (formContainer) {
+                        formContainer.style.display = "block";
+                    }
+                });
+            });
+
+            if (formCloseBtn && formContainer) {
+                formCloseBtn.addEventListener("click", function() {
+                    if (typeof formContainer.close === "function") {
+                        formContainer.close();
+                    } else {
+                        formContainer.style.display = "none";
+                    }
+                });
+            }
+
             const banner = document.getElementById("cookie-banner");
             const btnAll = document.getElementById("cookie-accept-all");
             const btnEssential = document.getElementById("cookie-accept-essential");
